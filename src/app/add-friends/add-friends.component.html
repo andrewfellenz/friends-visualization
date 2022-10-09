@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-header>Add Friends</mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="friendForm">
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" type="text" placeholder="Name" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Age</mat-label>
+        <input formControlName="age" matInput type="text" placeholder="Age" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Weight</mat-label>
+        <input formControlName="weight" matInput type="text" placeholder="Weight" />
+      </mat-form-field>
+
+      <!-- Need to add mock friends -->
+<!--       <mat-form-field appearance="outline">
+        <mat-label>Friends</mat-label>
+        <mat-select formControlName="friends" type="text" placeholder="Friends" multiple />
+      </mat-form-field> -->
+    </form>
+  </mat-card-content>
+</mat-card>

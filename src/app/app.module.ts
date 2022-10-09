@@ -1,14 +1,30 @@
+import { AddFriendsModule } from './add-friends/add-friends.module';
+// Angular
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// NGRX
 import { StoreModule } from '@ngrx/store';
 
+// Friends Components
+import { HeaderComponent } from './header/header.component';
+import { AddFriendsComponent } from './add-friends/add-friends.component';
+
+// Angular Material
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './home/home.component';
+
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, StoreModule.forRoot({}, {})],
+  declarations: [AppComponent, HeaderComponent, HomeComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    AddFriendsModule,
+    StoreModule.forRoot({}, {}),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
