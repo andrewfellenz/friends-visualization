@@ -1,7 +1,11 @@
 <mat-card>
-  <mat-card-header>Add Friends</mat-card-header>
+  <mat-card-title>
+    <h3>
+      Add Friends
+    </h3>
+  </mat-card-title>
   <mat-card-content>
-    <form [formGroup]="friendForm">
+    <form class="center-flex" [formGroup]="friendForm">
       <mat-form-field appearance="outline">
         <mat-label>Name</mat-label>
         <input matInput formControlName="name" type="text" placeholder="Name" />
@@ -14,12 +18,13 @@
         <mat-label>Weight</mat-label>
         <input formControlName="weight" matInput type="text" placeholder="Weight" />
       </mat-form-field>
-
-      <!-- Need to add mock friends -->
-<!--       <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline">
         <mat-label>Friends</mat-label>
-        <mat-select formControlName="friends" type="text" placeholder="Friends" multiple />
-      </mat-form-field> -->
+        <mat-select formControlName="friends" type="text" placeholder="Friends" multiple>
+          <mat-option *ngFor="let friend of mockFriends" [value]="friend">{{ friend.name | titlecase }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button class="button-primary" mat-button>Add Friend</button>
     </form>
   </mat-card-content>
 </mat-card>
