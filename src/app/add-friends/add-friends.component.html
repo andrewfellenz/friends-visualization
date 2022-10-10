@@ -5,7 +5,7 @@
     </h3>
   </mat-card-title>
   <mat-card-content>
-    <form class="center-flex" [formGroup]="friendForm">
+    <form class="center-flex" [formGroup]="friendForm" (ngSubmit)="onSubmit(friendForm.value)">
       <mat-form-field appearance="outline">
         <mat-label>Name</mat-label>
         <input matInput formControlName="name" type="text" placeholder="Name" />
@@ -21,10 +21,10 @@
       <mat-form-field appearance="outline">
         <mat-label>Friends</mat-label>
         <mat-select formControlName="friends" type="text" placeholder="Friends" multiple>
-          <mat-option *ngFor="let friend of mockFriends" [value]="friend">{{ friend.name | titlecase }}</mat-option>
+          <mat-option *ngFor="let friend of friends" [value]="friend">{{ friend.name | titlecase }}</mat-option>
         </mat-select>
       </mat-form-field>
-      <button class="button-primary" mat-button>Add Friend</button>
+      <button class="button-primary" mat-button type="submit">Add Friend</button>
     </form>
   </mat-card-content>
 </mat-card>

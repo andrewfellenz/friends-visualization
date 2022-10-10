@@ -2,15 +2,24 @@
 html,
 body {
   margin: 0;
-  height: 100%;
 }
 
 body {
   background-color: rgba(200, 200, 200, 1);
   font-size: 14px;
-  color: rgba(49, 49, 49, 1);
   font-family: "Roboto", sans-serif;
   box-sizing: border-box;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  color: rgba(49, 49, 49, 1);
 }
 
 /* Global Style Classes */
@@ -28,6 +37,36 @@ body {
   &:hover {
     color: rgba(80, 124, 255, 1);
     background-color: rgba(240, 240, 240, 1);
-    border: 2px solid rgba(80, 124, 255, 1)
+    border: 2px solid rgba(80, 124, 255, 1);
   }
+}
+
+.button-warning {
+  color: rgba(240, 240, 240, 1);
+  background-color: rgba(255, 0, 80, 1);
+  border: 2px solid rgba(255, 0, 80, 1) !important;
+
+  &:hover {
+    color: rgba(255, 0, 80, 1);
+    background-color: rgba(240, 240, 240, 1);
+    border: 2px solid rgba(255, 0, 80, 1);
+  }
+}
+
+.bubble {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 1px 4px;
+  border-radius: 4px;
+  width: fit-content;
+  background-color: rgba(255, 255, 159, 1);
+  border: 1px solid orange;
+  margin-right: 4px;
+}
+
+/* Global Mat Re-styles */
+mat-card {
+  background-color: rgba(240, 240, 240, 1);
+  width: 400px;
+  margin-top: 32px;
 }

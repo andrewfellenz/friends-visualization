@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { FriendsService } from './../services/friends.service';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { mockFriends } from '../mock-data/mock-friends';
 import { Friend } from '../models/friend';
 
 @Component({
@@ -8,11 +8,11 @@ import { Friend } from '../models/friend';
   templateUrl: './add-friends.component.html',
   styleUrls: ['./add-friends.component.scss'],
 })
-export class AddFriendsComponent implements OnInit {
+export class AddFriendsComponent {
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private friendsService: FriendsService) {}
 
-  mockFriends: Friend[] = mockFriends;
+  @Input() friends: Friend[] = [];
 
   friendForm = this.formBuilder.group({
     name: [''],
@@ -21,5 +21,14 @@ export class AddFriendsComponent implements OnInit {
     friends: [''],
   });
 
-  ngOnInit(): void {}
+  onSubmit(friendData: any): void {
+    const newFriend: Friend = {
+      name: friendData.name,
+      age: parseInt(friendData.age),
+      weight: parseInt(friendData.weight),
+      friends: friendData.friends
+    }
+    this.friendsService.addFriend(newFriend);
+    this.friendForm.reset();
+  }
 }

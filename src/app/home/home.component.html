@@ -1,1 +1,7 @@
-<friends-add-friends></friends-add-friends>
+<friends-add-friends [friends]="friends"></friends-add-friends>
+
+<friends-list-friends 
+    *ngIf="friends.length > 0" 
+    [friends]="friends" (deleteFriendEmitter)="deleteFriend($event)" 
+    (addAssociatedFriendsEmitter)="addAssociatedFriends($event)">
+</friends-list-friends>

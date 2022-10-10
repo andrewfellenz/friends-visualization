@@ -1,0 +1,18 @@
+<mat-card>
+    <section class="center-flex" *ngFor="let friend of friends">
+        <div class="center-flex">
+            <h2>{{ friend.name | titlecase }}</h2>
+            <span>{{ "Age: " + friend.age + " years old"}}</span><span>{{"Weight: " + friend.weight + "lbs"}}</span>
+            <p>
+                {{ "Friends: " }}
+                <span class="bubble" *ngFor="let associatedFriend of friend.friends">
+                    {{ (associatedFriend.name | titlecase) }}
+                </span>
+            </p>
+        </div>
+        <footer>
+            <button mat-button class="button-primary" (click)="addAssociatedFriends()">Add More Friends</button>
+            <button mat-button class="button-warning" (click)="deleteFriend(friend)">Delete</button>
+        </footer>
+    </section>
+</mat-card>

@@ -25,7 +25,11 @@ let darian: Friend = {
     name: 'darian',
     age: 65,
     weight: 260,
-    friends: [],
+    friends: [
+        alex,
+        bonnie,
+        cleo
+    ],
 }
 
 export let mockFriends: Friend[] = [
