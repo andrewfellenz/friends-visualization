@@ -30,5 +30,6 @@ export class HomeComponent implements OnInit {
 
   selectFriend(selectedFriend: Friend): void {
     this.selectedFriend = selectedFriend;
+    console.log(this.selectedFriend);
   }
 }
