@@ -1,5 +1,5 @@
 import { FriendsService } from './../services/friends.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Friend } from '../models/friend';
 
@@ -13,6 +13,7 @@ export class AddFriendsComponent {
   constructor(private formBuilder: FormBuilder, private friendsService: FriendsService) {}
 
   @Input() friends: Friend[] = [];
+  @Input() selectedFriend: Friend | null = null;
 
   friendForm = this.formBuilder.group({
     name: [''],

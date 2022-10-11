@@ -1,5 +1,5 @@
 <mat-card>
-    <section class="center-flex" *ngFor="let friend of friends">
+    <section class="center-flex" *ngFor="let friend of friends" (click)="selectFriend">
         <div class="center-flex">
             <h2>{{ friend.name | titlecase }}</h2>
             <span>{{ "Age: " + friend.age + " years old"}}</span><span>{{"Weight: " + friend.weight + "lbs"}}</span>

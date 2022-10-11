@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   constructor(private friendsService: FriendsService) { }
 
   friends: Friend[] = [];
+  selectedFriend: Friend | null = null;
 
   ngOnInit(): void {
     this.friendsService.getFriendsList().subscribe(
@@ -25,5 +26,9 @@ export class HomeComponent implements OnInit {
 
   deleteFriend(deletedFriend: Friend): void {
     this.friendsService.deleteFriend(deletedFriend);
+  }
+
+  selectFriend(selectedFriend: Friend): void {
+    this.selectedFriend = selectedFriend;
   }
 }

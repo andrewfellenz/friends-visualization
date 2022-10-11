@@ -2,6 +2,8 @@
 
 <friends-list-friends 
     *ngIf="friends.length > 0" 
-    [friends]="friends" (deleteFriendEmitter)="deleteFriend($event)" 
-    (addAssociatedFriendsEmitter)="addAssociatedFriends($event)">
+    [friends]="friends" (deleteFriendEmitter)="deleteFriend($event)"
+    (selectFriendEmitter)="selectFriend($event)"
+    (addAssociatedFriendsEmitter)="addAssociatedFriends($event)"
+    >
 </friends-list-friends>
