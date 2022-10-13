@@ -8,15 +8,20 @@ import { Friend } from '../models/friend';
 })
 export class FriendsService {
 
-  constructor() { }
-
   friends: BehaviorSubject<Friend[]> = new BehaviorSubject(mockFriends);
 
   getFriendsList(): BehaviorSubject<Friend[]> {
     return this.friends;
   }
 
-  addFriend(newFriend: Friend): void {
+  addFriend(friend: Friend): void {
+    const newFriend: Friend = {
+      id: this.generateId(),
+      name: friend.name,
+      age: friend.age,
+      weight: friend.weight,
+      friends: friend.friends
+    }
     this.friends.next([...this.friends.value, newFriend]);
   }
 
@@ -25,6 +30,15 @@ export class FriendsService {
   }
 
   deleteFriend(deletedFriend: Friend): void {
-    this.friends.next(this.friends.value.filter(friend => friend != deletedFriend));
+    this.friends.next(this.friends.value.filter(friend => friend.id !== deletedFriend.id));
+  }
+
+  generateId(): number {
+    let newId = 0;
+    this.friends.value.forEach(friend => {
+      if (friend.id >= newId)
+        newId = friend.id + 1
+    });
+    return newId;
   }
 }

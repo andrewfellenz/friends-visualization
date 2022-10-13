@@ -1,4 +1,9 @@
 <mat-card>
+    <mat-card-title>
+        <h3>
+          Friends List
+        </h3>
+    </mat-card-title>
     <section class="center-flex" *ngFor="let friend of friends">
         <div class="center-flex">
             <h2>{{ friend.name | titlecase }}</h2>
@@ -10,9 +15,12 @@
                 </span>
             </p>
         </div>
+        <!-- needs more work.. -->
+<!--         <mat-select formControlName="friends" type="text" multiple>
+          <mat-option *ngFor="let friend of friends" [value]="friend">{{ friend.name | titlecase }}</mat-option>
+        </mat-select> -->
         <footer>
             <button mat-button class="button-primary" (click)="addAssociatedFriends()">Add More Friends</button>
-            <button mat-button class="button-caution" (click)="selectFriend(friend)">Edit Friend</button>
             <button mat-button class="button-warning" (click)="deleteFriend(friend)">Delete</button>
         </footer>
     </section>

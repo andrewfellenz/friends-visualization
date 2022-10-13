@@ -1,21 +1,23 @@
-import { Action, createReducer, on } from '@ngrx/store';
+import { addFriend, deleteFriend, receivedFriendsList } from './../actions/friends.actions';
+import { createReducer, on } from '@ngrx/store';
+import { createSelector, createFeatureSelector } from '@ngrx/store';
+ 
 import { Friend } from 'src/app/models/friend';
-import * as FriendsActions from '../actions/friends.actions';
 
 export interface State {
-  friends: Friend[],
+  friends: Friend[];
 }
 
-export const initialState: State = {
-  friends: []
-}
+export const initialState: ReadonlyArray<Friend> = [];
 
-export const scoreboardReducer = createReducer(
+export const friendsReducer = createReducer(
   initialState,
-  // on(FriendsActions.enterHomePage, state => ({ ...state, // do something })),
-  // on(FriendsActions.addFriend, state => ({ ...state, friends: prop })),
-  // on(FriendsActions.deleteFriend, state => ({ ...state, // DELETE HELPER FUNCTION GOES HERE})),
-
-  // Do this later. May require adding an ID attribute
-  // on(FriendsActions.addAssociatedFriends, (state, { game }) => ({ home: game.home, away: game.away }))
+  on(receivedFriendsList, (state, { friends }) => friends),
+  on(addFriend, (state, { friend }) => [...state, friend]),
+  on(deleteFriend, (state,  { friendId }) => state.filter(friend => friend.id !== friendId)),
+  /* on(addAssociatedFriends, (state, { friend, newAssociatedFriends }) => ({ friend.friends = [...friend.friends, newAssociatedFriends] })) */
 );
+
+export const friendFeatureKey = "friends";
+
+export const selectFriends = createFeatureSelector<Friend[]>(friendFeatureKey);

@@ -12,8 +12,7 @@ export class AddFriendsComponent {
 
   constructor(private formBuilder: FormBuilder, private friendsService: FriendsService) {}
 
-  @Input() friends: Friend[] = [];
-  @Input() selectedFriend: Friend | null = null;
+  @Input() friends: Friend[] | null = [];
 
   friendForm = this.formBuilder.group({
     name: [''],
@@ -23,13 +22,7 @@ export class AddFriendsComponent {
   });
 
   onSubmit(friendData: any): void {
-    const newFriend: Friend = {
-      name: friendData.name,
-      age: parseInt(friendData.age),
-      weight: parseInt(friendData.weight),
-      friends: friendData.friends
-    }
-    this.friendsService.addFriend(newFriend);
+    this.friendsService.addFriend(friendData);
     this.friendForm.reset();
   }
 }

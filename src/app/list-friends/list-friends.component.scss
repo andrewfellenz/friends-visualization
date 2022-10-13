@@ -1,8 +1,15 @@
+mat-card {
+    max-height: calc(100vh - 536px);
+    overflow-y: auto;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
 section {
     padding: 8px;
     margin: 4px 0;
     border: 1px solid rgba(49, 49, 49, 1);
     border-radius: 4px;
+    cursor: pointer;
 }
 
 h2 {
@@ -16,7 +23,7 @@ p {
 
 button {
     margin-top: 8px;
-    width: 33.3%;
+    width: 50%;
 }
 
 #friends-box {

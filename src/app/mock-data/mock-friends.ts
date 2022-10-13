@@ -1,6 +1,7 @@
 import { Friend } from "../models/friend";
 
 let alex: Friend = {
+    id: 1,
     name: 'alex',
     age: 20,
     weight: 165,
@@ -8,6 +9,7 @@ let alex: Friend = {
 }
 
 let bonnie: Friend = {
+    id: 2,
     name: 'bonnie',
     age: 32,
     weight: 120,
@@ -15,6 +17,7 @@ let bonnie: Friend = {
 }
 
 let cleo: Friend = {
+    id: 3,
     name: 'cleo',
     age: 18,
     weight: 180,
@@ -22,6 +25,7 @@ let cleo: Friend = {
 }
 
 let darian: Friend = {
+    id: 4,
     name: 'darian',
     age: 65,
     weight: 260,

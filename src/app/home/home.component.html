@@ -1,9 +1,12 @@
-<friends-add-friends [friends]="friends"></friends-add-friends>
-
-<friends-list-friends 
-    *ngIf="friends.length > 0" 
-    [friends]="friends" (deleteFriendEmitter)="deleteFriend($event)"
-    (selectFriendEmitter)="selectFriend($event)"
-    (addAssociatedFriendsEmitter)="addAssociatedFriends($event)"
-    >
-</friends-list-friends>
+<main class="center-flex">
+    <friends-add-friends [friends]="friends$ | async"></friends-add-friends>
+    
+    <friends-list-friends 
+        *ngIf="(friends$ | async)?.length !== 0" 
+        [friends]="friends$ | async" (deleteFriendEmitter)="deleteFriend($event)"
+        (addAssociatedFriendsEmitter)="addAssociatedFriends($event)"
+        >
+    </friends-list-friends>
+    
+    <friends-data-panel [friends]="friends$ | async"></friends-data-panel>
+</main>

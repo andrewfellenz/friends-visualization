@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Friend } from '../models/friend';
 
 @Component({
@@ -10,18 +10,13 @@ export class ListFriendsComponent {
 
   constructor() { }
 
-  @Input() friends: Friend[] = [];
+  @Input() friends: Friend[] | null = [];
 
   @Output() addAssociatedFriendsEmitter: EventEmitter<Friend[]> = new EventEmitter<Friend[]>();
   @Output() deleteFriendEmitter: EventEmitter<Friend> = new EventEmitter<Friend>();
-  @Output() selectFriendEmitter: EventEmitter<Friend> = new EventEmitter<Friend>();
 
   deleteFriend(friend: Friend): void {
     this.deleteFriendEmitter.emit(friend);
-  }
-
-  selectFriend(friend: Friend): void {
-    this.selectFriendEmitter.emit(friend);
   }
   
   // addAssociatedFriends(friends: Friend): void {
